@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <h1>Index</h1>
+    <form method="POST" action="{{url_for('index')}}">
+        {{form.csrf_token}}
+        {{form.list_item.label}} {{form.list_item(size=20)}}
+        <input type="Submit" value="Add">
+        <input href="{{url_for('index') }}" value="Edit">
+        <input type="Submit" value="Delete">
+    </form>
+</body>
+
+</html>
