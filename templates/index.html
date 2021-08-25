@@ -5,18 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
     <title>To-Do List</title>
 </head>
 
 <body>
-    <h1>Index</h1>
-    <form method="POST" action="{{url_for('index')}}">
-        {{form.csrf_token}}
-        {{form.list_item.label}} {{form.list_item(size=20)}}
-        <input type="Submit" value="Add">
-        <input href="{{url_for('index') }}" value="Edit">
-        <input type="Submit" value="Delete">
-    </form>
+
+    <div class="form-top">
+        <div>
+            <form method="POST" action="{{url_for('index')}}">
+                {{form.csrf_token}}
+                {{form.list_title.label}} {{form.list_title(size=50)}}
+                <br> <br>
+                {{form.list_task.label}} {{form.list_task(size=50)}}
+                <br> <br>
+                <input type="Submit" value="Add">
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% for item in tasks %}
+            <div class="col-lg-4 col-sm-12">
+                {% if item.is_done%}
+                <div class="card complete" style="width: 18rem;">
+                    <img class="card-img-top"
+                        src="https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <p class="card-text">{{item.task}}</p>
+                        <a href="{{url_for('delete',task_id=item.id)}}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="card test" style="width: 18rem;">
+                    <img class="card-img-top"
+                        src="https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <p class="card-text">{{item.task}}</p>
+                        <a href="{{url_for('done',task_id=item.id)}}" class="btn btn-success">Done</a>
+
+                        <a href="{{url_for('delete',task_id=item.id)}}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 
 </html>
