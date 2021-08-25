@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+</head>
+
+<div class="box">
+    <h1>Register</h1>
+    {% with messages = get_flashed_messages()%}
+    {% if messages%}
+    {% for message in messages%}
+    <p>{{message}}</p>
+    {% endfor%}
+    {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('register') }}" novalidate>
+        {{ form.csrf_token }}
+        <p>
+            {{ form.name.label }} <br>{{ form.name(size=20) }}
+            {% for err in form.name.errors %}
+            <span style="color: red;">{{err}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.username.label }} <br>{{ form.username(size=20) }}
+            {% for err in form.username.errors %}
+            <span style="color: red;">{{err}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }} <br> {{ form.password(size=20) }}
+            {% for err in form.password.errors %}
+            <span style="color: red;">{{err}}</span>
+            {% endfor %}
+        </p>
+        <input type="Submit" value="Login">
+    </form>
+</div>
+
+</body>
+
+</html>

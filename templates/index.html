@@ -28,6 +28,7 @@
 
     <div class="container">
         <div class="row">
+            {% if tasks %}
             {% for item in tasks %}
             <div class="col-lg-4 col-sm-12">
                 {% if item.is_done%}
@@ -57,6 +58,7 @@
                 {% endif %}
             </div>
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </body>
