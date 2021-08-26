@@ -81,10 +81,10 @@ class Login(FlaskForm):
 @app.route('/',methods=['GET','POST'])
 @login_required
 def index():
-    tasks_data=List.query.get(current_user.id)
+    tasks_data=List.query.filter_by(user_id =current_user.id).all()
     form=ListForm()
     if form.validate_on_submit():
-        data=List(task=form.list_task.data,title=form.list_title.data)
+        data=List(task=form.list_task.data,title=form.list_title.data,user_id=current_user.id)
         db.session.add(data)
         db.session.commit()
         form.list_task.data=""
@@ -124,7 +124,6 @@ def register():
             method='pbkdf2:sha256',
             salt_length=8
         )
-        # form.validate_username(form.username.data)
         user=Users(name=form.name.data,username=form.username.data,password=hash_and_salted_password)
         db.session.add(user)
         db.session.commit()
@@ -156,9 +155,8 @@ def login():
 
 
 @app.route('/logout')
-@login_required
 def logout():
     logout_user()
-    return redirect("logi")
+    return redirect(url_for("login"))
 if __name__=="__main__":
     app.run(debug=True)

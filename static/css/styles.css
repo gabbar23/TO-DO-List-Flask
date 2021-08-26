@@ -1,10 +1,72 @@
+body {
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+}
+
+.hr {
+    width: 100%;
+}
+
+.font-style-cursive {
+
+    font-family: 'Kaushan Script', cursive;
+}
+
+.btn-outline-success {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-outline-success:hover {
+    color: #ffffff;
+    background-color: #FF4C29;
+    border-color: #198754;
+}
+
+.navbar {
+
+    background-color: #7a7a7a;
+}
+
+.card {
+    box-shadow: 2px 2px 4px #FF4C29;
+}
+
+.card-body {
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    color: #FF4C29;
+    font-size: 2rem;
+
+}
+
+.form-top {
+    background-color: #ffffff;
+}
+
+.index-title {
+    text-align: center;
+    font-size: 5rem;
+
+}
+
 .form-top {
     text-align: center;
     padding: 8%;
 }
 
 .complete {
-
     opacity: .5;
 }
 
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #7F7C82;
+    text-align: center;
+}
