@@ -1,6 +1,5 @@
 body {
-    font-family: 'Kaushan Script', cursive;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
 
@@ -8,29 +7,32 @@ body {
     width: 100%;
 }
 
-.font-style-cursive {
-
-    font-family: 'Kaushan Script', cursive;
+.main-head-block {
+    width: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #f8f9fa;
+    box-shadow: 2px 2px 6px #c4c4c4;
 }
 
 .btn-outline-success {
-    color: #ffffff;
+    color: #f8f9fa;
     border-color: #ffffff;
 }
 
 .btn-outline-success:hover {
     color: #ffffff;
-    background-color: #FF4C29;
+    background-color: #ffffff;
     border-color: #198754;
 }
 
 .navbar {
 
-    background-color: #7a7a7a;
+    background-color: #00a6ff;
 }
 
 .card {
-    box-shadow: 2px 2px 4px #FF4C29;
+    box-shadow: 2px 2px 4px #dddddd;
 }
 
 .card-body {
@@ -38,15 +40,13 @@ body {
 }
 
 .navbar-brand {
-    color: #FF4C29;
+    color: #ffffff;
     font-size: 2rem;
 
 }
-
-.form-top {
-    background-color: #ffffff;
+.navbar-brand:hover{
+    color: white;
 }
-
 .index-title {
     text-align: center;
     font-size: 5rem;
